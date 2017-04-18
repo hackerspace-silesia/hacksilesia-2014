@@ -12,8 +12,14 @@
     <title>HackSilesia</title>
 
     <link rel="shortcut icon" href="img/favicon.ico" />
+
+    <!-- build:css -->
+    <link href="css/min/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="css/min/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/agency.css" rel="stylesheet" type="text/css">
+    <!-- endbuild -->
+
     <!-- Vendor CSS (minified!) -->
-    <link href="css/style.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <!-- Custom CSS -->
     <!-- <link href="css/agency.css" rel="stylesheet"> <link href="css/min/bootstrap.css" rel="stylesheet"> -->
@@ -311,8 +317,8 @@
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">
-ORBITVU jest jedną z najbardziej innowacyjnych polskich spółek, światowym liderem w dziedzinie automatycznej fotografii produktowej i prezentacji produktowych 360&deg; oraz 3D. 
-Jako pierwsi stworzyliśmy unikalną inteligentną technologię automatycznego usuwania tła. Pierwsi na świecie wprowadziliśmy rozwiązania przełamujące bariery stojące przed prezentacjami 360&deg; w kanale mobilnym. Pierwsi wprowadziliśmy wirtualnego sprzedawcę do prezentacji produktowych oraz wyprodukowaliśmy profesjonalne, w pełni automatyczne studio do fotografii biżuterii. 
+ORBITVU jest jedną z najbardziej innowacyjnych polskich spółek, światowym liderem w dziedzinie automatycznej fotografii produktowej i prezentacji produktowych 360&deg; oraz 3D.
+Jako pierwsi stworzyliśmy unikalną inteligentną technologię automatycznego usuwania tła. Pierwsi na świecie wprowadziliśmy rozwiązania przełamujące bariery stojące przed prezentacjami 360&deg; w kanale mobilnym. Pierwsi wprowadziliśmy wirtualnego sprzedawcę do prezentacji produktowych oraz wyprodukowaliśmy profesjonalne, w pełni automatyczne studio do fotografii biżuterii.
 Urządzenia Orbitvu rozwijane i produkowane są w pełni w Unii Europejskiej, a sprzedawane na całym świecie już od 15 lat, również poprzez biuro handlowe w Berlinie. Z naszych rozwiązań korzystają np.: Bershka, Zara, Venezia, Bata, AB S.A., Wittchen, Vision Express.
                                     </p>
                                 </div>
@@ -566,13 +572,21 @@ Posługując się najnowszymi technologiami, pomagamy tworzyć, optymalizować i
         </div>
     </footer>
 
-    <!-- jQuery Version 2.11.0 -->
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <!-- build:js -->
+      <!-- jQuery Version 2.11.0 -->
+      <script src="js/jquery-2.1.1.min.js"></script>
+      <!-- Bootstrap Core JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
 
-    <!-- Custom Theme JavaScript -->
-    <script src="js/scripts.js"></script>
+      <!-- Custom Theme JavaScript -->
+      <script src="js/libs/agency.js"></script>
+      <script src="js/libs/cbpAnimatedHeader.js"></script>
+      <script src="js/libs/classie.js"></script>
+      <script src="js/libs/jquery.easing.1.3.js"></script>
+
+      <script src="js/map.js"></script>
+
+    <!-- endbuild -->
 
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 

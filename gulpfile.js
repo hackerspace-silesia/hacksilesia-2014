@@ -1,16 +1,14 @@
 var gulp = require("gulp");
 //Global
-var order = require("gulp-order");
 var concat = require("gulp-concat");
 //JS
-var jshint = require("gulp-jshint");
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 //CSS
 var uncss = require('gulp-uncss');
-var cssmin = require('gulp-minify-css');
+var cssnano = require('gulp-cssnano');
 //HTML
 var htmlmin = require('gulp-htmlmin');
+var htmlreplace = require('gulp-html-replace');
 
 
 var UGLIFY = {
@@ -49,8 +47,8 @@ var UNCSS = {
 
     ]
 };
-
-var CSS = {
+//
+var CSS_CONFIG = {
     noAdvanced: true
 };
 
@@ -87,40 +85,38 @@ gulp.task('watch', function () {
 
 gulp.task('css', [], function () {
     gulp.src([
-        "./src/css/min/**/*.css",
+        "./src/css/min/bootstrap.css",
+        "./src/css/min/font-awesome.css",
         "./src/css/agency.css",
     ])
-        .pipe(uncss(UNCSS))
-        .pipe(cssmin(CSS))
+        // .pipe(uncss(UNCSS))
+        .pipe(cssnano(CSS_CONFIG))
         .pipe(concat('style.min.css'))
         .pipe(gulp.dest('./deploy/css'));
 });
 
 gulp.task('html', function () {
     gulp.src(getPath('html'))
+        .pipe(htmlreplace({
+          js: 'js/scripts.min.js',
+          css: 'css/style.min.css'
+        }))
         .pipe(htmlmin(HTMLMIN))
         .pipe(gulp.dest('./deploy'));
 });
 
 
-gulp.task('scripts', ['jshint'], function () {
-    gulp.src([getPath('js'), '!./src/js/vendor/*.*'])
-        .pipe(uglify(UGLIFY))
-        .pipe(concat('scripts.js'))
-        .pipe(gulp.dest('./deploy/js'));
+gulp.task('scripts', function () {
+    gulp.src([
+        'src/js/vendor/jquery-2.1.1.js',
+        'src/js/vendor/bootstrap.js',
+        'src/js/libs/**/*.*',
+        'src/js/map.js'
+      ])
+      .pipe(uglify(UGLIFY))
+      .pipe(concat('scripts.min.js'))
+      .pipe(gulp.dest('./deploy/js'));
 
-    gulp.src(['./src/js/vendor/*.js'])
-        .pipe(uglify(UGLIFY))
-        .pipe(rename(function (path) {
-            path.extname = ".min.js";
-        }))
-        .pipe(gulp.dest('./deploy/js'));
 });
 
-gulp.task('jshint', [], function () {
-    gulp.src([getPath('js'), '!./src/js/vendor/*.js', '!./src/js/libs/*.*'])
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'));
-});
-
-gulp.task('default', ['watch', 'copy', 'css', 'html', 'scripts']);
+gulp.task('default', ['copy', 'css', 'html', 'scripts']);
