@@ -1,8 +1,6 @@
-[![Build Status](https://travis-ci.org/hackerspace-silesia/HackSilesia.svg?branch=master)](https://travis-ci.org/hackerspace-silesia/HackSilesia)
-
 HackSilesia
 ===========
 
 
-Strona hackathonu HackSilesia 
+Archiwalna strona pierwszej edycji hackathonu HackSilesia z roku 2014.
 
