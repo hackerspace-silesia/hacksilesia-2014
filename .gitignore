@@ -1,7 +1,0 @@
-node_modules/
-.idea
-.tern-port
-deploy
-npm-debug.log
-github_deploy_key
-github_deploy_key.pub
